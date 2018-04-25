@@ -1,5 +1,10 @@
 /*
- * $Id$
+ * This example VNC server for Android is adopted from
+ * http://code.google.com/p/android-vnc-server/ with some additional
+ * fixes applied.
+ *
+ * To build, you'll need the Android Native Development Kit from
+ * http://developer.android.com/sdk/ndk/.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -455,7 +460,7 @@ void print_usage(char **argv)
 	printf("%s [-k device] [-t device] [-h]\n"
 		"-k device: keyboard device node, default is /dev/input/event3\n"
 		"-t device: touch device node, default is /dev/input/event1\n"
-		"-h : print this help\n");
+		"-h : print this help\n", argv[0]);
 }
 
 int main(int argc, char **argv)
@@ -513,6 +518,6 @@ int main(int argc, char **argv)
 
 	printf("Cleaning up...\n");
 	cleanup_fb();
-	cleanup_kdb();
+	cleanup_kbd();
 	cleanup_touch();
 }
